@@ -323,7 +323,9 @@ class Assignment(core.Serializable):
         """Loads all tests specified by test_map."""
         log.info('Loading tests')
         for file_pattern, sources in self.tests.items():
+            print("File pattern", file_pattern)
             for source in sources.split(","):
+                print("Source", source)
                 # Separate filepath and parameter
                 if ':' in file_pattern:
                     file_pattern, parameter = file_pattern.split(':', 1)
@@ -331,6 +333,7 @@ class Assignment(core.Serializable):
                     parameter = ''
 
                 for file in sorted(glob.glob(file_pattern)):
+                    print("File", file)
                     if self.is_empty_init(file):
                         continue
                     try:
