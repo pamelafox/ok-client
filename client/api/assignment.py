@@ -331,7 +331,7 @@ class Assignment(core.Serializable):
                     file_pattern, parameter = file_pattern.split(':', 1)
                 else:
                     parameter = ''
-
+                print("File pattern", file_pattern)
                 for file in sorted(glob.glob(file_pattern)):
                     print("File", file)
                     if self.is_empty_init(file):
